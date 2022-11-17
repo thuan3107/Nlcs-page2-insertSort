@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Giai thuat sap xep chen" />
+    <meta name="author" content="Nguyen Huu Thuan">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thuật toán sắp xếp chèn</title>
+    <link rel="stylesheet" href="css/fontawesome-free-5.15.2-web/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        body{
+            background: #cfd22659;
+        }
+        /*Chrome Speed step*/
+        @media screen and (-webkit-min-device-pixel-ratio:0) {
+            input[type='range'] {
+            overflow:auto;
+            width: 100px;
+            -webkit-appearance: none;
+            /* background-color: #efdfdab6; */
+            border-radius: 25px;
+            background: url(paper.gif);
+            background-position: left top;
+            background-repeat: repeat;
+            border: 3px inset #bd3d3d;
+   
+   
+    
+}
+            }
+            
+            input[type='range']::-webkit-slider-runnable-track {
+            height: 10px;
+            -webkit-appearance: none;
+            color: #13bba4;
+            margin-top: -1px;
+            }
+            
+            input[type='range']::-webkit-slider-thumb {
+            width: 10px;
+            -webkit-appearance: none;
+            height: 10px;
+            cursor: ew-resize;
+            background: #616161;
+            box-shadow: -80px 0 0 80px #000000;
+            }
+        
+        
+        .setting-list ul {
+            list-style: none;
+            margin-top: 0;
+        } 
+        .setting-list .setting-list-left ul li  {
+            display: flex;
+            font-size: 15px;
+            align-items: center;
+            
+        }
+        .setting-list .setting-list-right ul li  {
+            display: flex;
+            font-size: 20px;
+            align-items: center;
+        }
+
+
+        .setting-list ul li button {
+            margin-left: 10px;
+            border-radius: 25px;
+            background: url(paper.gif);
+            background-position: left top;
+            background-repeat: repeat;
+            border: 3px inset #bd3d3d;
+        }
+        .setting-list ul li select {
+            margin-left: 10px;
+        }
+        .setting-list ul li input {
+            margin-left: 10px;
+        }
+        .condition {
+            display: none;
+        }
+        .condition.active {
+            display: block;
+        }
+        .countSwap {
+            display: none;
+        }
+        .countSwap.active {
+            display: block;
+        }
+        .title{
+            display: flex;
+            justify-content: center;
+            align-items: center;  
+            /* css h1 cung chinh title*/          
+        }
+        h1 {
+            display: inline-block;
+            font: bold 4.5em/1.5 Bebas, sans-serif;
+            color: #5CA17C; /*non-webkit fallback*/
+            font-size: 72px;
+            text-transform: uppercase;
+            background-image: linear-gradient(to bottom, #26BDA6, #FF9F65, #DED37E, #26BDA6);
+            background-size: auto 250%;
+            transition: background-position 0.5s;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* line-height: 200px; */
+            background-position: 0 100%;
+            margin: 0 auto;
+            
+        }
+        h1:hover {
+            background-position: 0 0;
+            cursor: pointer;
+        }
+        .setting-list-left{
+            margin-left: 30rem;
+        }
+        .setting-list{
+            display: flex;
+
+        }
+        
+
+        
+    </style>
+</head>
+<body>
+
+    <div class="setting">
+        <div class="title">
+            <h1>Insertion Sort</h1>
+        </div>
+    </div>
+
+    <div class="setting-list" >
+        <div class="setting-list-left">
+            <ul>
+                <li>
+                    <h3>Tạm dừng </h3>
+                    <button class="btn btn-pause">
+                        <i class="fas fa-pause"></i>
+                    </button>
+                </li>
+                <li>
+                    <h3>Tiếp tục </h3>
+                    <button class="btn btn-next">
+                        <i class="fas fa-play"></i>
+                    </button>
+                </li>
+                <li>
+                    <h3>Tốc độ </h3>
+                    <input class="input-range" type="range" min="0" max="40" color="black" >
+                </li>
+            </ul>
+        </div>
+        
+        <div class="setting-list-right" style="list-style: none;margin-left: 30rem;">
+            <li> 
+                <h3 class="condition">Điều kiện: <strong></strong></h3>
+            </li>
+            <li>  <h3 class="countSwap">Số lần lặp: <strong></strong></h3>
+            </li>
+        </div>
+
+    </div>
+  
+</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+    <script src="js/InsertSort.js"></script>
+    <script src="js/P5.js"></script>
+    <script>
+        let pause = document.getElementsByClassName('btn-pause');
+        let next = document.getElementsByClassName('btn-next');
+        let range = document.getElementsByClassName('input-range');
+        pause[0].addEventListener('click', function () {
+            frameRate(0);
+        })
+        next[0].addEventListener('click', function() {
+            frameRate(10);
+        })
+        range[0].addEventListener('input', function () {
+            frameRate(Number(this.value));
+        })
+    </script>
+</html>
